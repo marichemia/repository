@@ -36,8 +36,9 @@ header {
     top: 0;
     right: -300px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
     /* navbar shape*/
 
     border-style: solid;
@@ -53,7 +54,7 @@ header {
 .hamburger-menu {
     width: 35px;
     height: 30px;
-    position: fixed;
+
     /*hamburger menu position*/
     top: 100px;
     right: 80px;
@@ -83,6 +84,13 @@ header {
 
 .change .line-2 {
     opacity: 0;
+}
+
+.image-and-categories {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .nav-list {
