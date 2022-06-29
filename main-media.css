@@ -1,0 +1,72 @@
+@media screen and (max-width:1182px) {
+    .navbar {
+        right: -500px;
+    }
+
+    .hamburger-menu {
+        position: fixed;
+        top: 70px;
+    }
+
+    .change {
+        right: 0;
+    }
+
+    .grid {
+        grid-template-columns: auto auto auto;
+    }
+
+    .grid-heading h1 {
+        font-size: 40px;
+        justify-content: space-evenly;
+    }
+
+
+}
+
+@media screen and (max-width:713px) {
+    .grid {
+        grid-template-columns: auto auto;
+    }
+
+    #girl-image {
+        display: none;
+    }
+
+    .grid-heading {
+        justify-content: space-around;
+    }
+}
+
+@media screen and (max-width:469px) {
+    .grid-container {
+        width: 100%;
+        height: 2000px;
+    }
+
+    .grid {
+        grid-template-columns: auto;
+
+    }
+
+    .grid-heading {
+        flex-direction: column;
+    }
+
+    .navbar {
+        width: 320px;
+
+    }
+
+    .image-and-categories {
+        flex-direction: column-reverse;
+    }
+
+    .hamburger-menu {
+        top: 70px;
+    }
+
+
+
+
+}
