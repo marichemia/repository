@@ -41,7 +41,7 @@
 @media screen and (max-width:469px) {
     .grid-container {
         width: 100%;
-        height: 2000px;
+        height: 2700px;
     }
 
     .grid {
@@ -58,15 +58,14 @@
 
     }
 
-    .image-and-categories {
-        flex-direction: column-reverse;
+    #nav-image {
+        display: none;
     }
+
 
     .hamburger-menu {
-        top: 70px;
+        top: 40px;
+        position: fixed;
+        left: 235px;
+
     }
-
-
-
-
-}
