@@ -24,3 +24,31 @@ togglebtn.addEventListener('click', function () {
         console.log("hiiiiiiiiiii");
     }
 })
+
+//animals??
+
+const animalsMenu = document.getElementById("animals");
+const firstGrid = document.getElementById("grid-item-1");
+const animalsImg = document.getElementById("card-image-1");
+const gridTextOne = document.getElementById("grid-text-1");
+const firstAudio = document.createElement("audio");
+const firstAudioSource = document.createElement("source");
+
+animalsMenu.addEventListener('click', function () {
+    animalsImg.removeAttribute("src");
+    animalsImg.setAttribute("src", "dog.png");
+    navbar.classList.remove("change");
+    gridTextOne.textContent = "Dog"
+
+
+})
+
+
+if (gridTextOne.textContent == "Animals") {
+    firstGrid.addEventListener('click', function () {
+        animalsImg.removeAttribute("src");
+        animalsImg.setAttribute("src", "dog.png");
+        gridTextOne.textContent = "Dog"
+    })
+}
+
