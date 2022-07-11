@@ -306,6 +306,10 @@ input:checked+.slider:before {
     align-items: center;
 }
 
+.cover-text {
+    height: 100%;
+}
+
 .card {
     display: flex;
     width: 100%;
@@ -336,7 +340,7 @@ input:checked+.slider:before {
 
 }
 
-.flip-card:hover .flip-card-inner {
+.rotate {
     transform: rotateY(180deg);
 }
 
@@ -354,4 +358,8 @@ input:checked+.slider:before {
 .flip-card-back {
 
     transform: rotateY(180deg);
+}
+
+.preventClick {
+    pointer-events: none;
 }
