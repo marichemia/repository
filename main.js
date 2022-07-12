@@ -1,54 +1,17 @@
 import { cards } from './cards.js';
-//hamburger menu
 
+//variable declarations
+//menu
 const menuIcon = document.querySelector('.hamburger-menu');
 const navbar = document.querySelector('.navbar');
-
-menuIcon.addEventListener('click', () => {
-    navbar.classList.toggle('change');
-})
-
 //toggle switch
-
 const togglebtn = document.getElementById("toggle-button");
 const play_train_txt = document.getElementById("play-train");
 const grid_container = document.querySelector(".grid-container");
-togglebtn.addEventListener('click', function () {
-    if (togglebtn.checked == true) {
-        play_train_txt.textContent = "PLAY";
-        grid_container.classList.add("play-mode-color");
-        launchPlayMode();
-    } else {
-        play_train_txt.textContent = "TRAIN";
-        grid_container.classList.remove("play-mode-color");
-
-        for (let i = 0; i < 8; i++) {
-            frontText[i].classList.remove('none');
-        }
-
-    }
-})
-
-
-
-window.addEventListener('hashchange', function () {
-    location.reload();
-})
-
-if (location.hash == '#home') {
-    document.getElementsByClassName('grid')[0].classList.remove('none');
-    document.getElementsByClassName('grid')[1].setAttribute('class', 'none');
-
-} else {
-    document.getElementsByClassName('grid')[0].setAttribute('class', 'none');
-}
-
-if (!location.hash) {
-    location.hash = "#home";
-}
-
-/////
-
+const startBtn = document.getElementsByClassName('start-button')[0];
+//grids
+const grids = document.getElementsByClassName('grid');
+//category grid
 const frontImages = document.querySelectorAll(".first-image");
 const backImages = document.querySelectorAll(".second-image");
 const frontText = document.querySelectorAll(".text");
@@ -57,7 +20,39 @@ const gridItems = document.querySelectorAll(".flip-card");
 const cardInner = document.querySelectorAll(".flip-card-inner");
 const cardBack = document.querySelectorAll(".flip-card-back");
 let i;
-console.log(cardInner);
+
+//hamburger menu
+menuIcon.addEventListener('click', () => {
+    navbar.classList.toggle('change');
+})
+
+//toggle switch
+togglebtn.addEventListener('click', function () {
+    if (togglebtn.checked == true) {
+        launchPlayMode();
+    } else {
+        disablePlayMode();
+    }
+})
+
+// change between home and category grids
+window.addEventListener('hashchange', function () {
+    location.reload();
+})
+
+if (location.hash == '#home') {
+    grids[0].classList.remove('none');
+    grids[1].setAttribute('class', 'none');
+
+} else {
+    grids[0].setAttribute('class', 'none');
+}
+
+if (!location.hash) {
+    location.hash = "#home";
+}
+
+//set up category grid with images, audios and texts for all categories
 
 if (location.hash == '#animals') {
     i = 0;
@@ -77,7 +72,7 @@ if (location.hash == '#animals') {
     i = 7;
 }
 
-for (let j = 0; j < 8; j++) {
+for (let j = 0; j < gridItems.length; j++) {
     frontImages[j].setAttribute(`src`, `${cards[i][j]['img']}`);
     backImages[j].setAttribute(`src`, `${cards[i][j]['img']}`);
     frontText[j].textContent = `${cards[i][j]['word']}`;
@@ -100,7 +95,11 @@ for (let j = 0; j < 8; j++) {
 
 cardInner.forEach(function (item) {
     item.addEventListener('click', function () {
-        item.classList.add('rotate');
+        if (togglebtn.checked == true) {
+
+        } else {
+            item.classList.add('rotate');
+        }
     })
 })
 
@@ -110,38 +109,61 @@ cardInner.forEach(function (item) {
     })
 })
 
-//play mode function
-const imageContainer = document.getElementsByClassName('card-image-container');
-const card = document.getElementsByClassName('card');
+//disable play mode
+function disablePlayMode() {
+    play_train_txt.textContent = "TRAIN";
+    grid_container.classList.remove("play-mode-color");
+    startBtn.classList.add('hide');
 
+    frontText.forEach(function (item) {
+        item.classList.remove('none');
+    })
+}
+
+//launch play mode
 function launchPlayMode() {
-    for (let i = 0; i < 8; i++) {
-        frontText[i].classList.add('none');
-    }
+    play_train_txt.textContent = "PLAY";
+    grid_container.classList.add("play-mode-color");
+    startBtn.classList.remove('hide');
 
+    frontText.forEach(function (item) {
+        item.classList.add('none');
+    })
+}
+
+// start game 
+let clicked = false;
+startBtn.addEventListener('click', startGame);
+function startGame() {
     cardInner.forEach(function (item) {
-        item.classList.add('preventClick');
+        item.addEventListener('click', function () {
+            clicked = true;
+        })
     })
 
     let arr = [0, 1, 2, 3, 4, 5, 6, 7];
     shuffle(arr);
-    console.log(arr);
     let last = arr.pop();
-    console.log(last);
     word(last);
-    console.log(word(last));
+}
 
 
+
+function word(num) {
+
+    let audio = new Audio();
+    audio.src = `${cards[i][num]['audio']}`;
+    audio.play();
 }
 
 function shuffle(array) {
     return array.sort(() => Math.random() - 0.5);
 }
 
-function word(num) {
-    let isClicked = false;
 
-    let audio = new Audio();
-    audio.src = `${cards[i][num]['audio']}`;
-    audio.play();
-}
+
+
+
+
+
+
