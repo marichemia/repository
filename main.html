@@ -68,7 +68,7 @@
             </div>
         </div>
         <div>
-            <button class="start-button hide"><img src="start.png" alt="start"></button>
+            <button class="start-button hide"><img src="start.png" alt="start" id="start-button-image"></button>
         </div>
     </header>
     <section class="grid-container">
@@ -78,51 +78,51 @@
             <img src="children.png" alt="children" id="girl-image" width="200" height="120">
         </div>
         <div class="grid none">
-            <div class="grid-item grid-item-1" id="grid-item-1">
+            <a href='#animals' class="grid-item grid-item-1" id="grid-item-1">
                 <div class="card-image-container"><img id="card-image-1" src="animals.png" width="250" height="250">
                 </div>
                 <p class="card" id="grid-text-1">Animals</p>
-            </div>
-            <div class="grid-item grid-item-2">
+            </a>
+            <a href='#clothes' class="grid-item grid-item-2">
                 <div class="card-image-container"><img class="card-image-2" src="clothes.png" width="250" height="250">
                 </div>
                 <p class="card">Clothes</p>
-            </div>
-            <div class="grid-item grid-item-3">
+            </a>
+            <a href='#feelings' class="grid-item grid-item-3">
                 <div class="card-image-container"><img class="card-image-3" src="feelings.png" width="250" height="250">
                 </div>
                 <p class="card">Feelings</p>
-            </div>
-            <div class="grid-item grid-item-4">
+            </a>
+            <a href='#colors' class="grid-item grid-item-4">
                 <div class="card-image-container"><img class="card-image-4" src="colors.png" width="250" height="250">
                 </div>
                 <p class="card">Colors</p>
-            </div>
-            <div class="grid-item grid-item-5">
+            </a>
+            <a href='#food' class="grid-item grid-item-5">
                 <div class="card-image-container"><img class="card-image-5" src="food.png" width="250" height="250">
                 </div>
                 <p class="card">Food</p>
-            </div>
-            <div class="grid-item grid-item-6">
+            </a>
+            <a href='#numbers' class="grid-item grid-item-6">
                 <div class="card-image-container"><img class="card-image-6" src="numbers.png" width="250" height="250">
                 </div>
                 <p class="card">Numbers</p>
-            </div>
-            <div class="grid-item grid-item-7">
+            </a>
+            <a href='#actions' class="grid-item grid-item-7">
                 <div class="card-image-container"><img class="card-image-7" src="actions.png" width="250" height="250">
                 </div>
                 <p class="card">Actions</p>
-            </div>
-            <div class="grid-item grid-item-8">
+            </a>
+            <a href='#body' class="grid-item grid-item-8">
                 <div class="card-image-container"><img class="card-image-8" src="body.png" width="250" height="250">
                 </div>
                 <p class="card">Body</p>
-            </div>
+            </a>
         </div>
         <div class="grid" id="category-grid">
             <!--grid item-->
-            <div class="grid-item flip-card" id="ragaca">
-                <div class="flip-card-inner">
+            <div class="grid-item flip-card">
+                <div class="flip-card-inner" id="0">
                     <div class="flip-card-front">
                         <div class="card-image-container">
                             <img class="first-image">
@@ -137,7 +137,7 @@
             </div>
             <!--grid item-->
             <div class="grid-item flip-card">
-                <div class="flip-card-inner">
+                <div class="flip-card-inner" id="1">
                     <div class="flip-card-front">
                         <div class="card-image-container">
                             <img class="first-image">
@@ -152,7 +152,7 @@
             </div>
             <!--grid item-->
             <div class="grid-item flip-card">
-                <div class="flip-card-inner">
+                <div class="flip-card-inner" id="2">
                     <div class="flip-card-front">
                         <div class="card-image-container">
                             <img class="first-image">
@@ -167,7 +167,7 @@
             </div>
             <!--grid item-->
             <div class="grid-item flip-card">
-                <div class="flip-card-inner">
+                <div class="flip-card-inner" id="3">
                     <div class="flip-card-front">
                         <div class="card-image-container">
                             <img class="first-image">
@@ -182,7 +182,7 @@
             </div>
             <!--grid item-->
             <div class="grid-item flip-card">
-                <div class="flip-card-inner">
+                <div class="flip-card-inner" id="4">
                     <div class="flip-card-front">
                         <div class="card-image-container">
                             <img class="first-image">
@@ -197,7 +197,7 @@
             </div>
             <!--grid item-->
             <div class="grid-item flip-card">
-                <div class="flip-card-inner">
+                <div class="flip-card-inner" id="5">
                     <div class="flip-card-front">
                         <div class="card-image-container">
                             <img class="first-image">
@@ -212,7 +212,7 @@
             </div>
             <!--grid item-->
             <div class="grid-item flip-card">
-                <div class="flip-card-inner">
+                <div class="flip-card-inner" id="6">
                     <div class="flip-card-front">
                         <div class="card-image-container">
                             <img class="first-image">
@@ -227,7 +227,7 @@
             </div>
             <!--grid item-->
             <div class="grid-item flip-card">
-                <div class="flip-card-inner">
+                <div class="flip-card-inner" id="7">
                     <div class="flip-card-front">
                         <div class="card-image-container">
                             <img class="first-image">
@@ -241,10 +241,15 @@
                 </div>
             </div>
         </div>
-    </section>
-    <footer>
+        <footer class="score-container hide">
+            <div id="icon-container">
 
-    </footer>
+            </div>
+        </footer>
+    </section>
+    <div id='game-over'>
+        <img id="game-over-img">
+    </div>
     <script type="module" src="main.js"></script>
 </body>
 
